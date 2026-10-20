@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+logo/
+.env
+.DS_Store
+examples/*/originals/
+examples/*/shelf/
+examples/*/concepts/*-2048.png
+runs/
+PLAN.md

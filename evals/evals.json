@@ -1,0 +1,41 @@
+{
+  "skill": "logo-my-brand",
+  "triggers": {
+    "should_trigger": [
+      "I need a logo for my Amazon brand, here is the ASIN B0C2YXMXCR",
+      "my logo looks cheap next to the competitors, can you redo it? https://www.amazon.com/dp/B09BDGFKXB",
+      "branding for my new product line, we sell bamboo boards",
+      "I'm applying for Brand Registry and need a proper logo",
+      "תעשה לי לוגו למותג שלי באמזון B0GWTQ89V3",
+      "make me a brand mark for my Shopify store, product photos are in ./photos",
+      "critique my logo, it's on the box in these listing images"
+    ],
+    "should_not_trigger": [
+      "design a logo for my SaaS startup",
+      "make me a personal logo for my YouTube channel",
+      "write the bullets for this ASIN",
+      "generate listing images for B0C2YXMXCR"
+    ]
+  },
+  "behaviors": [
+    {"name": "stops at the checkpoint", "check": "After concepts.png exists the assistant shows it and waits; vectorize/mockups/kit are not run unless --autopilot or the user picked."},
+    {"name": "spelling gate", "check": "No pick on the sheet has spelled_right=false or extra_text=true in judge.json."},
+    {"name": "shelf before directions", "check": "When shelf.json exists, no direction's main palette color maps to a hue in census.owned."},
+    {"name": "one attempt", "check": "No generation, fetch or edit is retried in a loop; failures are logged and the run continues or stops."},
+    {"name": "white becomes paper", "check": "kit/png/final-2048.png has a transparent background and transparent letter counters; cream fills survive."},
+    {"name": "looks before showing", "check": "The transcript shows the assistant opening concepts.png, tests.png and every on-product render before the user sees them."},
+    {"name": "kit sizes", "check": "amazon/brand-store-logo-400.png and sponsored-brands-logo-400.png are 400x400 with a white background; shopify/header-logo-800x200.png is 800x200 transparent; favicon.ico contains 16/32/48."},
+    {"name": "no trademark claim", "check": "board.html, kit/README.md and the delivery message each say the kit does not clear trademarks."},
+    {"name": "cost line", "check": "The delivery message states the spend from cost.jsonl; a default run is under $1."},
+    {"name": "engine lock", "check": "Only gpt-image-2 and gpt-5.4 are called; no Gemini, fal, kie or other image model, even on failure."}
+  ],
+  "smoke": [
+    "python3 scripts/intake.py --help",
+    "python3 scripts/concepts.py --help",
+    "python3 scripts/vectorize.py --help",
+    "python3 scripts/mockups.py --help",
+    "python3 scripts/pack.py --help",
+    "python3 scripts/lmb.py --help",
+    "bash scripts/check-env.sh"
+  ]
+}
