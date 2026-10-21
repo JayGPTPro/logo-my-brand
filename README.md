@@ -11,7 +11,7 @@ socials, and a kit with files sized for every upload. All of it on one page per 
 /logo-my-brand B0C2YXMXCR
 ```
 
-A full run costs about $0.45 to $0.70 in OpenAI usage and takes about six minutes. Any business works too:
+A full run costs about $0.90 to $1.70 in OpenAI usage and takes about six minutes. Any business works too:
 `/logo-my-brand "Tony's Slice"` with a line about the place; the competitors then come from the web with
 their real logos.
 

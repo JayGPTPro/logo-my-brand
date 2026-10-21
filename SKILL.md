@@ -32,9 +32,9 @@ plus a line about what it is and where (see Other modes).
 Engine: `gpt-image-2` for every image and `gpt-5.4` for every look, on OpenAI direct. When OpenAI answers
 `insufficient_quota` the run moves by itself to the same gpt-image-2 hosted on kie.ai (`KIE_API_KEY`) and to
 Gemini 3.1 Pro for vision and web search (`GEMINI_API_KEY`), and says so in one log line. Force a route with
-`LMB_IMAGE_PROVIDER=kie` and `LMB_VISION_PROVIDER=gemini`. No other image model, ever. A full run costs about $0.30 to $0.60 at the
-default `low` quality (12 concepts, 1 refine, 3 on-product edits, 4 vision calls). Do not raise
-`LMB_QUALITY` unless the user asks.
+`LMB_IMAGE_PROVIDER=kie` and `LMB_VISION_PROVIDER=gemini`. No other image model, ever. A full run costs about
+USD 0.90 to 1.70 at the default `low` quality. Do not raise `LMB_QUALITY` unless the user asks. (Never write a
+dollar sign before a digit in this file: Claude Code replaces `$0`, `$1`... with the skill's arguments.)
 
 ## Files
 
